@@ -15,7 +15,11 @@ It takes approximately 30 minutes to generate the whole dataset, which has ~1223
 The fine-tuning procedure mimics the one of the 8-bit low rank adaptation, and it is contained in the colab notebook `sage_finetuning_github.ipynb`.
 
 ## Generate new output
-There are two ways to generate new output.
+There are two ways to generate new output. One is through the notebook `generate_sage_github.ipynb`, and the other one is through the script `generate_sage_results.sh`. In the first case it suffices to execute each cell until the user prompt is required. Write your prompt and keep executing the cells until the end. In the notebook there is also the option to produce a sage script with the output of the model. The second way is by running the script as follows
+```
+bash generate_sage_results.sh
+```
+The user will be asked to write an input prompt. After that the code will produce and run a sage script with the output and print the result in the shell. Note that the output might have problems, so the sage script execution might fail.
 
 ## To do
 There are many things to improve:
