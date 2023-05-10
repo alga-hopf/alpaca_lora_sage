@@ -23,16 +23,20 @@ The user will be asked to write an input prompt. After that the code will produc
 
 ## To do
 There are many things to improve:
-- Improve the dataset: the dataset is taken from the SageMath documentation, but it lacks instructions and outputs from users that use SageMath. Including such examples could dramatically improve the generating performance of the model. If you feel comfortable, please include some of your code in the format
+- Improve the dataset: the dataset is taken from the SageMath documentation, but it lacks instructions and outputs from users that use SageMath. Including such examples could dramatically improve the generating performance of the model. If you feel comfortable, please include some of your code in the following format in the text file `new_examples_from_users.txt.
 ```
 {"instruction": "your instruction",
 "input": "",
 "output": "the output you get"}
 ```
-in the text file `new_examples_from_users.txt`.
 - Try other quantization, like 4-bit, and different LLaMA models.
 
 ## Requirements
+- Huggingface transformers, datasets, Accelerate
+- bitsandbytes 
+- sentencepiece
+- peft
+- Pytorch
 
 
 
