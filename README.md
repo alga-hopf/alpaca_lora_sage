@@ -33,6 +33,11 @@ in the text file `new_examples_from_users.txt`.
 - Try other quantization, like 4-bit, and different LLaMA models.
 
 ## Requirements
+- Huggingface transformers, datasets, Accelerate
+- bitsandbytes 
+- sentencepiece
+- peft
+- Pytorch
 
 
 
