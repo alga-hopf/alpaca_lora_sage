@@ -6,5 +6,5 @@ echo -n "checkpoint name: "
 read checkpoint
 echo -n "Insert your prompt here: "
 read prompt
-python3 generate_sage_script.py --prompt $prompt --checkpoint $checkpoint
+python3 generate_sage_script.py --prompt "$prompt" --checkpoint "$checkpoint"
 sage output_code.sage
