@@ -37,6 +37,7 @@ There are many things to improve:
 - sentencepiece
 - peft
 - Pytorch
+- SageMath (only for generating new output)
 
 
 
