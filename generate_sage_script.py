@@ -40,7 +40,7 @@ if __name__ == "__main__":
 	device = "cuda" if torch.cuda.is_available() else "cpu"
 
 	checkpoint_base =  "decapoda-research/llama-7b-hf"
-	checkpoint_lora = os.path.expanduser('~/alpaca_lora_sage/'+checkpoint)
+	checkpoint_lora = os.path.expanduser('~/alpaca_lora_sage/'+checkpoint_lora)
 	model_max_length = 512
 	tokenizer = LlamaTokenizer.from_pretrained(checkpoint_base, model_max_length=model_max_length, padding_side="right", use_fast=False)
 	DEFAULT_PAD_TOKEN = "[PAD]"
@@ -56,5 +56,6 @@ if __name__ == "__main__":
 
 	model.eval();
 	
+	print("Computing output...")
 	output = evaluate(prompt, model)
 	sage_code_from_output(output)
