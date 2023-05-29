@@ -1,0 +1,9 @@
+datasets==2.12.0
+numpy==1.22.4
+peft==0.4.0.dev0
+protobuf==3.20.3
+pynvml==11.5.0
+torch==2.0.1+cu118
+tqdm==4.65.0
+transformers==4.30.0.dev0
+wandb==0.15.3
