@@ -1,6 +1,6 @@
 # Alpaca-LoRA-SageMath
 
-This repository contains the code to fine-tune the [LLama model](https://huggingface.co/docs/transformers/main/en/model_doc/llama) with [low rank adaptation and 8-bit quantization](https://github.com/tloen/alpaca-lora) on a dataset made of SageMath instructions. The dataset is generated following the [Stanford Alpaca dataset](https://github.com/tatsu-lab/stanford_alpaca) model. [SageMath](https://www.sagemath.org/) is a popular free open-source mathematical software, whose mission is ''Creating a viable free open source alternative to Magma, Maple, Mathematica and Matlab''. Following their mission, it would be helpful to have a language assistant specialized in the SageMath language for different purposes, like research, education, or as a free and open source plugin for mathematical computations.
+This repository contains the code to fine-tune the [LLama model](https://huggingface.co/docs/transformers/main/en/model_doc/llama) [1] with [low rank adaptation and 8-bit quantization](https://github.com/tloen/alpaca-lora) [2, 3] on a dataset made of SageMath instructions. The dataset is generated following the [Stanford Alpaca dataset](https://github.com/tatsu-lab/stanford_alpaca) model. [SageMath](https://www.sagemath.org/) is a popular free open-source mathematical software, whose mission is ''Creating a viable free open source alternative to Magma, Maple, Mathematica and Matlab''. Following their mission, it would be helpful to have a language assistant specialized in the SageMath language for different purposes, like research, education, or as a free and open source plugin for mathematical computations.
 
 Both [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) and [Alpaca-LoRA](https://github.com/tloen/alpaca-lora) are licensed under the Apache-2.0 license.
 
@@ -77,4 +77,9 @@ There are many things to improve:
 ```
 - Try other quantization, like 4-bit, and different LLaMA models.
 - Improve the execution of the SageMath code, e.g., append multiple outputs to the same `.sage` file and execute the final script.
+
+## References
+[1] [LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971v1). Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, Guillaume Lample. 
+[2] [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685). Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen
+[3] [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314). Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer
 
