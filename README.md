@@ -83,6 +83,8 @@ There are many things to improve:
 
 ## References
 [1] [LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971v1). Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, Guillaume Lample. 
+
 [2] [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685). Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen
+
 [3] [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314). Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer
 
