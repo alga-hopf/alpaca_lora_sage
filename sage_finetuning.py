@@ -27,9 +27,10 @@ def print_gpu_utilization():
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 	parser.add_argument('--path_dataset', default="~/alpaca_lora_sage/dataset.json", type=str, help="dataset path")
-	parser.add_argument('--wandb_project', default="", type=str, help="wandb project name")
+	parser.add_argument('--wandb_project', default="sage finetuning", type=str, help="wandb project name")
 	parser.add_argument('--model_max_length', default=512, type=int, help="max length accepted by the model")
 	parser.add_argument('--batch_size', default=128, type=int, help="model batch size")
+	parser.add_argument('--perc_dataset_size', default=1., type=float, help="percentage of dataset for training")
 	parser.add_argument('--micro_batch_size', default=8, type=int, help="batch size per GPU for training")
 	parser.add_argument('--lora_r', default=8, type=int, help="LoRA rank")
 	parser.add_argument('--lora_alpha', default=16, type=int, help="LoRA alpha scaling factor")
@@ -68,6 +69,8 @@ if __name__ == "__main__":
 	model_name = args.model_name
 	wandb_entity = args.wandb_entity_name
 	wandb_key = args.wandb_key
+	perc_dataset = args.perc_dataset_size
+	
 
 	""" Load and inspect dataset"""
 
@@ -116,7 +119,7 @@ if __name__ == "__main__":
 	sources_list = [prompt_no_input.format_map(example) for example in list_data_dict]
 	targets = [f"{example['output']}{tokenizer.eos_token}" for example in list_data_dict]
 
-	pop_size = len(raw_dataset)
+	pop_size = int(len(raw_dataset) * perc_dataset)
 	order = list(range(pop_size))
 	random.shuffle(order)
 	examples_list = [s + t for s, t in zip(sources_list, targets)]
