@@ -30,6 +30,8 @@ python3 sage_finetuning.py
 with the following arguments:
 - `--path_dataset`: the path to the SageMath dataset. Default is "~/alpaca_lora_sage/dataset.json".
 - `--wandb_project`: the name of your wandb project. Default is "".
+- `--wandb_entity_name`: the name of your wandb entity. Default is "".
+- `--wandb_key`: the name of your wandb key. Default is "".
 - `--model_max_length`: max length accepted by the model. Default is $512$.
 -	`--batch_size`: model batch size. Default is $128$.
 -	`--micro_batch_size`: the batch size per GPU for training. Default is $8$. 
