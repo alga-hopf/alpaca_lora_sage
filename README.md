@@ -29,7 +29,7 @@ python3 sage_finetuning.py
 ```
 with the following arguments:
 - `--path_dataset`: the path to the SageMath dataset. Default is "~/alpaca_lora_sage/dataset.json".
-- `--wandb_project`: the name of your wandb project. Default is "".
+- `--wandb_project`: the name of your wandb project. Default is "sage finetuning".
 - `--wandb_entity_name`: the name of your wandb entity. Default is "".
 - `--wandb_key`: the name of your wandb key. Default is "".
 - `--model_max_length`: max length accepted by the model. Default is $512$.
@@ -47,6 +47,7 @@ with the following arguments:
 -	`--out_dir`: chosen output directory. Default is "~/alpaca_lora_sage/"	
 -	`--logging_steps`: number of logging steps. Default is $1$.
 -	`--model_name`: how to save the pretrained model. Default is "alpaca_lora_sage".
+-	`--perc_dataset_size`: portion of the dataset to use for training. Default is $1$.
 
 ## Generate new output
 There are two ways to generate new output. One is through the notebook `generate_sage_github.ipynb`, and the other one is through the script `generate_sage.py`. In the first case it suffices to execute each cell until the user prompt is required. Write your prompt and keep executing the cells until the end. In the notebook there is also the option to produce a sage script with the output of the model. 
