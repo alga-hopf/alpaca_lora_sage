@@ -38,6 +38,8 @@ if __name__ == "__main__":
 	parser.add_argument('--learning_rate', default=3e-4, type=float, help="Learning rate")
 	parser.add_argument('--group_by_length', default=False, type=bool, help="Whether to group by length")
 	parser.add_argument('--wandb_run_name', default="", type=str, help="wandb run name")
+	parser.add_argument('--wandb_entity_name', default="", type=str, help="wandb entity name")
+	parser.add_argument('--wandb_key', default="", type=str, help="wandb key name")
 	parser.add_argument('--resume_from_checkpoint', default=None, type=None, help="Whether to resume from checkpoint")
 	parser.add_argument('--use_wandb', default=True, type=bool, help="Whether to log on wandb")
 	parser.add_argument('--out_dir', default="~/alpaca_lora_sage/", type=str, help="Directory where to save the model")
@@ -49,21 +51,23 @@ if __name__ == "__main__":
 	
 	path_dataset = os.path.expanduser(args.path_dataset)
 	wandb_project = args.wandb_project
-	model_max_length = args.model_max_length # 512
-	batch_size = args.batch_size #128
-	micro_batch_size = args.micro_batch_size #4  
-	lora_r = args.lora_r #8
-	lora_alpha = args.lora_alpha #16
-	lora_dropout = args.lora_dropout #0.05
-	num_epochs = args.num_epochs #3
-	learning_rate = args.learning_rate #3e-4
-	group_by_length = args.group_by_length # False
-	wandb_run_name = args.wandb_run_name #"run0"
-	resume_from_checkpoint = args.resume_from_checkpoint #None
+	model_max_length = args.model_max_length 
+	batch_size = args.batch_size 
+	micro_batch_size = args.micro_batch_size   
+	lora_r = args.lora_r 
+	lora_alpha = args.lora_alpha 
+	lora_dropout = args.lora_dropout 
+	num_epochs = args.num_epochs 
+	learning_rate = args.learning_rate 
+	group_by_length = args.group_by_length 
+	wandb_run_name = args.wandb_run_name 
+	resume_from_checkpoint = args.resume_from_checkpoint 
 	use_wandb = args.use_wandb
 	out_dir = os.path.expanduser(args.out_dir)	
 	logging_steps = args.logging_steps
 	model_name = args.model_name
+	wandb_entity = args.wandb_entity_name
+	wandb_key = args.wandb_key
 
 	""" Load and inspect dataset"""
 
@@ -76,8 +80,9 @@ if __name__ == "__main__":
 	"""# Fine tuning"""
 
 	if use_wandb:
-		wandb.login()
+		wandb.login(key=wandb_key)
 		os.environ["WANDB_PROJECT"] = wandb_project
+		os.environ["WANDB_ENTITY"] = wandb_entity
 
 	world_size = int(os.environ.get("WORLD_SIZE", 1))
 	lora_target_modules = ["q_proj", "v_proj"]
