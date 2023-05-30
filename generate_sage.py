@@ -2,6 +2,7 @@ from transformers import GenerationConfig, LlamaForCausalLM, LlamaTokenizer
 from peft import PeftModel
 import torch
 import argparse
+import os
 
 """ Some functions"""
 
