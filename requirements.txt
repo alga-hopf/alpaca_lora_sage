@@ -7,3 +7,4 @@ torch==2.0.1+cu118
 tqdm==4.65.0
 transformers==4.30.0.dev0
 wandb==0.15.3
+bitsandbytes==0.37.0
