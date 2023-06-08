@@ -29,7 +29,7 @@ if __name__ == "__main__":
 	parser.add_argument('--path_dataset', default="~/alpaca_lora_sage/dataset.json", type=str, help="dataset path")
 	parser.add_argument('--wandb_project', default="sage finetuning", type=str, help="wandb project name")
 	parser.add_argument('--model_max_length', default=512, type=int, help="max length accepted by the model")
-	parser.add_argument('--batch_size', default=128, type=int, help="model batch size")
+	parser.add_argument('--batch_size', default=256, type=int, help="model batch size")
 	parser.add_argument('--perc_dataset_size', default=1., type=float, help="percentage of dataset for training")
 	parser.add_argument('--micro_batch_size', default=8, type=int, help="batch size per GPU for training")
 	parser.add_argument('--lora_r', default=8, type=int, help="LoRA rank")
@@ -46,6 +46,7 @@ if __name__ == "__main__":
 	parser.add_argument('--out_dir', default="~/alpaca_lora_sage/", type=str, help="Directory where to save the model")
 	parser.add_argument('--logging_steps', default=1, type=int, help="Number of steps for logging")
 	parser.add_argument('--model_name', default="alpaca_lora_sage", type=str, help="How to save the pretrained model")
+	parser.add_argument('--auto_batch', default=True, type=bool, help="Whether to automatically find optimal batch size")
 	
 	args = parser.parse_args()
 	print(args)
@@ -70,6 +71,7 @@ if __name__ == "__main__":
 	wandb_entity = args.wandb_entity_name
 	wandb_key = args.wandb_key
 	perc_dataset = args.perc_dataset_size
+	auto_batch = args.auto_batch
 	
 
 	""" Load and inspect dataset"""
@@ -191,6 +193,7 @@ if __name__ == "__main__":
 		    group_by_length=group_by_length,
 		    report_to="wandb" if use_wandb else None,
 		    run_name=wandb_run_name if use_wandb else None,
+		    auto_find_batch_size=auto_batch
 		)
 
 	trainer = Trainer(
